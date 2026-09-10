@@ -1,3 +1,12 @@
+# application.yaml
 spring:
   application:
     name: complex-back
+  profiles:
+    active: dev,db
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+    import: optional:file:.env[.properties]

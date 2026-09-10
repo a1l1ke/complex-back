@@ -1,0 +1,14 @@
+# application-db.yaml
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:postgresql://${PGHOST}:5432/${PGDATABASE}
+    username: ${PGUSER}
+    password: ${PGPASSWORD}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
