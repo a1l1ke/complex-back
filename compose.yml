@@ -25,7 +25,7 @@ services:
     ports:
       - "3100:3100"
     volumes:
-      - ./config/loki.yaml:/etc/loki/local-config.yaml:ro
+      - ./config/loki.yml:/etc/loki/local-config.yaml:ro
       # ro는 권한 문제가 없기 때문에 바인딩 마운트 사용에 문제가 없는데
       # 계속 바뀌는 파일들은 네임드 볼륨으로 하시는게 낫다
     command:
@@ -39,7 +39,7 @@ services:
     volumes:
       # app -> promtail (pull) -> loki (push)
       - log-data:/var/log/app:ro
-      - ./config/promtail.yaml:/etc/promtail/config.yml:ro
+      - ./config/promtail.yml:/etc/promtail/config.yml:ro
     command:
       - -config.file=/etc/promtail/config.yml
     depends_on:
