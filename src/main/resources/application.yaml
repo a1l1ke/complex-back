@@ -4,9 +4,20 @@ spring:
     name: complex-back
   profiles:
     active: dev,db
+# logging:
+# level:
+# pattern:
+# 출력을 관리하는 것
+# file:
+# 출력될 파일 경로
 ---
 spring:
   config:
     activate:
       on-profile: dev
     import: optional:file:.env[.properties]
+logging:
+  level:
+    # root: debug
+    # org.springframework: debug
+    org.example: debug
