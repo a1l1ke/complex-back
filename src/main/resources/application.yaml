@@ -10,6 +10,22 @@ spring:
 # 출력을 관리하는 것
 # file:
 # 출력될 파일 경로
+# metric (prometheus, actuator)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+        # health 서버의 정상 구동 여부
+        # info 관련 정보
+        # prometheus 과 pull에서 이해할 수 있는 정보 포맷
+  endpoint:
+    health:
+      # 서버 운영 정보 -> 보안
+      show-details: always
+      # kubernetes에서 사용하는 probe
+      probes:
+        enabled: true
 ---
 spring:
   config:

@@ -58,6 +58,19 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=admin
     networks:
       - mon-net
+    # loki, prometheus -> grafana
+
+  prometheus:
+    image: prom/prometheus:latest
+    restart: always
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    networks:
+      - mon-net
+    depends_on:
+      - app
 
 networks:
   mon-net:
