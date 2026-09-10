@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class PokemonRepositoryImpl implements PokemonRepository {
-    private final PokenJpaRepository jpaRepository;
+    private final PokemonJpaRepository jpaRepository;
 
     @Override
     public Pokemon save(Pokemon pokemon) {
