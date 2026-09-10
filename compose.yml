@@ -48,6 +48,16 @@ services:
     networks:
       - mon-net
 
+  grafana:
+    image: grafana/grafana:latest
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - mon-net
 
 networks:
   mon-net:
